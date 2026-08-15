@@ -1,22 +1,26 @@
 { pkgs, ... }:
 {
-    imports = [
-        ./vscode.nix
-        ./kitty.nix
-    ];
+  imports = [
+    ./vscode.nix
+    ./kitty.nix
+    ./plasma.nix
+  ];
 
-    home.username = "liv";
-    home.homeDirectory = "/home/liv";
-    home.stateVersion = "26.05";
+  home.username = "liv";
+  home.homeDirectory = "/home/liv";
+  home.stateVersion = "26.05";
 
-    home.packages = with pkgs; [
-        discord
-        thunderbird
-        nil 
-        nixd
-        nixfmt
-        kitty
-    ];
+  home.packages = with pkgs; [
+    discord
+    thunderbird
+    nil
+    nixd
+    nixfmt
+    kitty
+    obsidian
+    fastfetch
+  ];
 
-    programs.direnv.enable = true;
+  programs.direnv.enable = true;
+  programs.obsidian.enable = true;
 }

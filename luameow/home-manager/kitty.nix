@@ -15,5 +15,12 @@
     };
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      function fish_greeting
+        fastfetch -s Title:OS:Kernal:Chassis:Uptime:Terminal:Shell:DE:WM:CPU:GPU:Disk:Bluetooth
+      end
+    '';
+  };
 }

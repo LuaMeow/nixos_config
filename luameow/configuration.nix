@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, plasma-manager, ... }:
 
 {
   imports =
@@ -132,6 +132,7 @@
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
+  home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
   home-manager.users.liv = {
     imports = [
       ./home-manager/home.nix
