@@ -2,6 +2,7 @@
 {
     imports = [
         ./vscode.nix
+        ./kitty.nix
     ];
 
     home.username = "liv";
@@ -14,6 +15,7 @@
         nil 
         nixd
         nixfmt
+        kitty
     ];
 
     programs.direnv.enable = true;

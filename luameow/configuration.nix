@@ -11,6 +11,16 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  programs.fish.enable = true;
+  users.users.liv.shell = pkgs.fish;
+
+  services.logind.settings = {
+    Login = {
+      IdleAction = "suspend";
+      IdleActionSec = "30min"; # Change this to your preferred time (e.g., 1h, 45min)
+    };
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
