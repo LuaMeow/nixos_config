@@ -4,6 +4,7 @@
     ./zed.nix
     ./kitty.nix
     ./plasma.nix
+    ./ssh.nix
   ];
 
   home.username = "liv";

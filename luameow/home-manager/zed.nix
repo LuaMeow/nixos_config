@@ -12,6 +12,7 @@
       "everforest-blurred"
     ];
     userSettings = {
+      disable_ai = true;
       project_panel = {
         dock = "right";
       };
