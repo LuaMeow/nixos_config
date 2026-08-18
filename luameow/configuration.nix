@@ -2,13 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, plasma-manager, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+      #inputs.home-manager.nixosModules.default
     ];
 
   programs.fish.enable = true;
@@ -129,15 +129,15 @@
     git
   ];
   
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-  home-manager.users.liv = {
-    imports = [
-      ./home-manager/home.nix
-    ];
-  };
+ # home-manager.useUserPackages = true;
+  #home-manager.useGlobalPkgs = true;
+  #home-manager.backupFileExtension = "backup";
+  #home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+  #home-manager.users.liv = {
+   # imports = [
+    #  ./home-manager/home.nix
+   # ];
+  #};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

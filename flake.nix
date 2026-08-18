@@ -36,6 +36,7 @@
       nixpkgs,
       nixpkgs-stable,
       sops-nix,
+      home-manager,
       nur,
       plasma-manager,
       ...
@@ -58,6 +59,18 @@
               })
             ];
           })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+            home-manager.users.liv = {
+              imports = [
+                ./luameow/home-manager/home.nix
+              ];
+            };
+          }
         ];
         # specialArgs is optional, but I like passing all flake inputs here.
         # specialArgs can be referenced in nixos modules at the top of each file, the same way you refer to `pkgs`: `{ pkgs, inputs, ... }:``

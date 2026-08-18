@@ -19,7 +19,7 @@
     enable = true;
     interactiveShellInit = ''
       function fish_greeting
-        fastfetch -s Title:OS:Kernal:Chassis:Uptime:Terminal:Shell:DE:WM:CPU:GPU:Disk:Bluetooth
+        fastfetch -s Title:Break:OS:Kernal:Chassis:Uptime:Break:Terminal:Shell:DE:WM:Break:CPU:GPU:Disk:Memory
       end
     '';
   };
