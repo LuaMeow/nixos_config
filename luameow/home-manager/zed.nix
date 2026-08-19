@@ -38,6 +38,20 @@
           };
         };
       };
+      theme_overrides = {
+        "Everforest Blurred" = {
+          "syntax" = {
+            "keyword" = {"color" = "#fcad68"; "font_style" = "italic"; }; #orange
+            "string" = {"color" = "#8ae37b"; }; #green
+            "variable" = {"color" = "#f26d74"; }; #red
+            "function" ={"color" = "#7bdee3"; }; #lightblue
+            "number" = {"color" = "#c07be3"; }; #purple
+            "link-text" = {"color" = "#4f58d1"; }; #blue
+            "tag" = {"color" = "#cfb1e0"; }; #lilac #d2a4ed
+            "punctuation.bracket" = {"color" = "#e8e04f"; }; #yellow
+          };
+        };
+      };
     };
   };
 }
