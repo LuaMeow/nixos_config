@@ -22,6 +22,7 @@
     fastfetch
   ];
 
+  programs.onlyoffice.enable = true;
   programs.direnv.enable = true;
   programs.obsidian.enable = true;
 }

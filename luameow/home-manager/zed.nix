@@ -12,7 +12,7 @@
       "everforest-blurred"
     ];
     userSettings = {
-      format_on_save = "on";
+      format_on_save = "off";
       disable_ai = true;
       project_panel = {
         dock = "right";
@@ -44,11 +44,11 @@
           "syntax" = {
             "keyword" = {"color" = "#fcad68"; "font_style" = "italic"; }; #orange
             "string" = {"color" = "#8ae37b"; }; #green
-            "variable" = {"color" = "#f26d74"; }; #red
+            "variable" = {"color" = "#ff6e9e"; }; #pink
             "function" ={"color" = "#7bdee3"; }; #lightblue
             "number" = {"color" = "#c07be3"; }; #purple
             "link-text" = {"color" = "#4f58d1"; }; #blue
-            "tag" = {"color" = "#cfb1e0"; }; #lilac #d2a4ed
+            "tag" = {"color" = "#cfb1e0"; }; #lilac
             "punctuation.bracket" = {"color" = "#e8e04f"; }; #yellow
           };
         };
