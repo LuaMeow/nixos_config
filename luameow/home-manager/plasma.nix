@@ -26,5 +26,8 @@
         autoSuspend.idleTimeout = 1200;
       };
     };
+    configFile = {
+      "kwalletrc"."Wallet"."Enabled" = false;
+    };
   };
 }

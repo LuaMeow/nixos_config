@@ -23,7 +23,15 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Privacy = "device";
+        JustWorksRepairing = "always";
+        Class = "0x000100";
+        FastConnectable = "true";
+      };
+    };
   };
 
   # Bootloader.
@@ -132,7 +140,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    pulseaudio
   ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -143,7 +157,6 @@
   # };
 
   # List services that you want to enable:
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
