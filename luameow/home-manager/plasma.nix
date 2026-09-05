@@ -27,7 +27,7 @@
       };
     };
     configFile = {
-      "kwalletrc"."Wallet"."Enabled" = false;
+       "kwalletrc"."Wallet"."Enabled" = false;
     };
   };
 }

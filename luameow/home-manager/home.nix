@@ -5,6 +5,7 @@
     ./kitty.nix
     ./plasma.nix
     ./ssh.nix
+    ./fastfetch.nix
   ];
 
   home.username = "liv";
@@ -19,7 +20,8 @@
     nixfmt
     kitty
     obsidian
-    fastfetch
+    darktable
+    moonlight-qt
   ];
 
   programs.onlyoffice.enable = true;
