@@ -1,5 +1,5 @@
 let
-  fastfetch_logo = ./ascii.txt;
+  fastfetch_logo = ./marceline.txt;
 in
 {
   programs.fastfetch = {
@@ -14,7 +14,6 @@ in
           top =1;
           bottom =1;
         };
-        color = "cyan";
       };
     };
   };
