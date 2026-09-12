@@ -16,18 +16,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
   # outputs is a function taking in the inputs as an attribute set and returning an attribute set with specific attributes
@@ -37,8 +35,8 @@
       nixpkgs-stable,
       sops-nix,
       home-manager,
+      walker,
       nur,
-      plasma-manager,
       ...
     }@inputs:
     {
@@ -64,10 +62,11 @@
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+            home-manager.sharedModules = [  ];
             home-manager.users.liv = {
               imports = [
                 ./luameow/home-manager/home.nix
+                inputs.walker.homeManagerModules.default
               ];
             };
           }

@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
+    ./desktop/desktop.nix
     ./zed.nix
     ./kitty.nix
-    ./plasma.nix
     ./ssh.nix
     ./fastfetch.nix
   ];
@@ -22,6 +22,7 @@
     obsidian
     darktable
     moonlight-qt
+    nautilus
   ];
 
   programs.onlyoffice.enable = true;

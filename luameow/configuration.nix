@@ -9,6 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./steam.nix
+      ./hyprland.nix
+      ./sddm.nix
+      ./pipewire.nix
+      ./bluetooth.nix
     ];
 
   programs.fish.enable = true;
@@ -18,19 +22,6 @@
     Login = {
       IdleAction = "suspend";
       IdleActionSec = "30min"; # Change this to your preferred time (e.g., 1h, 45min)
-    };
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Privacy = "device";
-        JustWorksRepairing = "always";
-        Class = "0x000100";
-        FastConnectable = "true";
-      };
     };
   };
 
@@ -81,14 +72,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -101,22 +84,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -124,7 +91,15 @@
   users.users."liv" = {
     isNormalUser = true;
     description = "Liv";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "render"
+      "audio"
+      "adbusers"
+      "mount"
+    ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -140,8 +115,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    pulseaudio
+    sops
+    gsettings-desktop-schemas
+    glib
   ];
+
+  programs.dconf.enable = true;
 
   hardware.graphics = {
     enable = true;
