@@ -76,8 +76,8 @@ in
         },
 
         dwindle = {
-          -- 1 = forces new tiles to open Left/Top (Spiral pattern)
-          force_split = 1,
+          -- 2 = forces new tiles to open Right/Top (Spiral pattern)
+          force_split = 2,
 
           -- Keeps split structure locked regardless of container shuffles
           preserve_split = true,
