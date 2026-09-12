@@ -88,7 +88,7 @@ in
           touchpad = {
             natural_scroll = true,  -- Touchpad
           }
-        }
+        },
       })
 
       hl.on("hyprland.start", function()

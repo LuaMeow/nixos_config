@@ -30,8 +30,8 @@
           format = "{icon}";
           on-click = "activate";
           format-icons = {
-            active = "";
-            default = "";
+            active = "*";
+            default = "_";
           };
           persistent-workspaces = {
             "*" = 5;
