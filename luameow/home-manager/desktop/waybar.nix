@@ -58,8 +58,8 @@
 
         network = {
           format-wifi = "  {signalStrength}%";
-          format-ethernet = "󰈀 wired";
-          format-disconnected = "󰤭 offline";
+          format-ethernet = "wired";
+          format-disconnected = "offline";
           tooltip-format = "{ifname} via {gwaddr}";
         };
 

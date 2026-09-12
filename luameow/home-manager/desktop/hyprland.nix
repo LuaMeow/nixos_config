@@ -62,10 +62,26 @@ in
         (bind "SUPER+ALT+up" (moveMon "u"))
         (bind "SUPER+ALT+down" (moveMon "d"))
         (bind "SUPER+SHIFT+m" (exec "hypr-monitor-toggle"))
+
+        (bind "XF86AudioMute" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+        (bind "XF86AudioMicMute" (exec "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
+        (bind "XF86AudioRaiseVolume" (exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"))
+        (bind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
       ];
     };
     extraConfig = ''
       hl.config({
+        general = {
+          layout = "dwindle"
+        },
+
+        dwindle = {
+          -- 1 = forces new tiles to open Left/Top (Spiral pattern)
+          force_split = 1,
+
+          -- Keeps split structure locked regardless of container shuffles
+          preserve_split = true,
+        },
         input = {
           kb_layout = "de",
           natural_scroll = true, -- Mouse

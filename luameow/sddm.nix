@@ -2,10 +2,10 @@
 let
   sddmTheme = pkgs.stdenv.mkDerivation {
     pname = "sddm-theme";
-    version = "1.0";
+    version = "1.1";
     src = builtins.path {
       path = ./sddm-theme;
-      name = "sddmtheme-v1.0";
+      name = "sddmtheme-v1.1";
     };
     installPhase = ''
       mkdir -p $out/share/sddm/themes/sddm-theme
