@@ -23,6 +23,7 @@
     darktable
     moonlight-qt
     nautilus
+    brightnessctl
   ];
 
   programs.onlyoffice.enable = true;
