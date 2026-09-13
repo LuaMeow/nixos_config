@@ -1,5 +1,12 @@
-{ ... }:
+{ config, ... }:
 {
+  #add svg
+  home.file.".config/waybar/icons/VolumeOn.svg".source = ./icons/VolumeOn.svg;
+  home.file.".config/waybar/icons/Wifi.svg".source = ./icons/Wifi.svg;
+  home.file.".config/waybar/icons/Battery.svg".source = ./icons/Battery.svg;
+  home.file.".config/waybar/icons/pawGray.svg".source = ./icons/pawGray.svg;
+  home.file.".config/waybar/icons/pawPink.svg".source = ./icons/pawPink.svg;
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -11,7 +18,21 @@
         margin-top = 6;
         margin-left = 10;
         margin-right = 10;
-        spacing = 4;
+        spacing = 0;
+
+        #add svg
+        "image#VolumeOn" = {
+          path = "${config.home.homeDirectory}/.config/waybar/icons/VolumeOn.svg";
+          size = 20;
+        };
+        "image#Wifi" = {
+          path = "${config.home.homeDirectory}/.config/waybar/icons/Wifi.svg";
+          size = 20;
+        };
+        "image#Battery" = {
+          path = "${config.home.homeDirectory}/.config/waybar/icons/Battery.svg";
+          size = 20;
+        };
 
         modules-left = [
           "hyprland/workspaces"
@@ -19,8 +40,11 @@
         ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
+          "image#VolumeOn" #add svg
           "pulseaudio"
+          "image#Wifi" #add svg
           "network"
+          "image#Battery" #add svg
           "battery"
           "clock"
           "tray"
@@ -30,8 +54,8 @@
           format = "{icon}";
           on-click = "activate";
           format-icons = {
-            active = "*";
-            default = "_";
+            active = " ";
+            default = " ";
           };
           persistent-workspaces = {
             "*" = 5;
@@ -57,10 +81,12 @@
         };
 
         network = {
-          format-wifi = "  {signalStrength}%";
+          format-wifi = " {signalStrength}%";
           format-ethernet = "wired";
           format-disconnected = "offline";
           tooltip-format = "{ifname} via {gwaddr}";
+
+          on-click = "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi";
         };
 
         battery = {
@@ -94,33 +120,47 @@
         font-family: "JetBrainsMono Nerd Font", sans-serif;
         font-size: 13px;
         min-height: 0;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       window#waybar {
         background: transparent;
+        padding: 0;
+        margin: 4px 6px;
       }
 
       #workspaces,
       #window,
-      #pulseaudio,
-      #network,
-      #battery,
       #clock,
       #tray {
         background: rgba(30, 30, 46, 0.75);
         color: #cdd6f4;
         padding: 0 12px;
-        margin: 4px 2px;
-        border-radius: 12px;
+        margin: 3px 2px;
+        border-radius: 10px;
       }
 
       #workspaces button {
         padding: 0 6px;
         color: #6c7086;
+        background-color: transparent;
+        background-image: url("${config.home.homeDirectory}/.config/waybar/icons/pawGray.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        transition: none;
+
+        padding: 0;
+        margin: 4px 6px;
       }
 
       #workspaces button.active {
         color: #cdd6f4;
+        background-image: url("${config.home.homeDirectory}/.config/waybar/icons/pawPink.svg");
+        background-color: transparent;
+        transition: none;
       }
 
       #workspaces button:hover {
@@ -130,6 +170,8 @@
 
       #clock {
         font-weight: bold;
+        font-size: 13px;
+        margin: 3px 2px;
       }
 
       #battery.warning {
@@ -140,8 +182,63 @@
         color: #f38ba8;
       }
 
+      #image.Battery, #battery {
+       background: rgba(30, 30, 46, 0.75);
+       margin: 3px 2px;
+       }
+
+      #image.Battery {
+       margin-right: 0;
+       margin-left: 4px;
+       border-radius: 10px 0 0 10px;
+       padding: 0 2px 0 10px;
+      }
+
+      #battery {
+       margin-left: 0;
+       margin-right: 4px;
+       border-radius: 0 10px 10px 0;
+       padding: 0 10px 0 2px;
+      }
+
       #tray > .passive {
         -gtk-icon-effect: dim;
+      }
+
+      #image.VolumeOn, #pulseaudio {
+        background: rgba(30, 30, 46, 0.75);
+        margin: 3px 2px;
+        }
+
+      #image.VolumeOn {
+        margin-right: 0;
+        border-radius: 10px 0 0 10px;
+        padding: 0 2px 0 10px;
+      }
+
+      #pulseaudio {
+        margin-left: 0;
+        border-radius: 0 10px 10px 0;
+        padding: 0 10px 0 2px;
+      }
+
+       #image.Wifi, #network {
+        background: rgba(30, 30, 46, 0.75);
+        margin: 3px 2px;
+        }
+
+      #image.Wifi {
+        margin-right: 0;
+        margin-left: 4px;
+        border-radius: 10px 0 0 10px;
+        padding: 0 2px 0 10px;
+      }
+
+      #network {
+        margin-left: 0;
+        margin-right: 4px;
+        border-radius: 0 10px 10px 0;
+        padding: 0 10px 0 2px;
       }
     '';
   };

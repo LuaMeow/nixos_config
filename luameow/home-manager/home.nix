@@ -24,9 +24,13 @@
     moonlight-qt
     nautilus
     brightnessctl
+    networkmanagerapplet
+    gnome-control-center
   ];
 
   programs.onlyoffice.enable = true;
   programs.direnv.enable = true;
   programs.obsidian.enable = true;
+
+  services.network-manager-applet.enable = false;
 }
