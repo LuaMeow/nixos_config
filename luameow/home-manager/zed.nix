@@ -12,6 +12,7 @@
       "everforest-blurred"
     ];
     userSettings = {
+      "delete_associated_key_presses" = false;
       format_on_save = "off";
       disable_ai = true;
       project_panel = {
