@@ -24,13 +24,17 @@
     moonlight-qt
     nautilus
     brightnessctl
-    networkmanagerapplet
     gnome-control-center
+    swayimg
   ];
 
   programs.onlyoffice.enable = true;
   programs.direnv.enable = true;
   programs.obsidian.enable = true;
 
-  services.network-manager-applet.enable = false;
+  dconf.settings = {
+    "org/gnome/nautilus/list-view" = {
+      use-tree-view = true;
+    };
+  };
 }
