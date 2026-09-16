@@ -24,6 +24,10 @@
       IdleActionSec = "30min"; # Change this to your preferred time (e.g., 1h, 45min)
     };
   };
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "suspend"; # Change to "ignore" if you want it to stay awake when plugged into a monitor
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
