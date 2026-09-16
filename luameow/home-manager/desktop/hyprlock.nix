@@ -16,8 +16,8 @@
           # If you use hyprpaper, you can screenshot the current state by setting:
           # path = "screenshot";
 
-          blur_passes = 0; # 0 to disable blur, higher numbers make it blurrier
-          # blur_size = 7;
+          blur_passes = 2; # 0 to disable blur, higher numbers make it blurrier
+          blur_size = 7;
           noise = 0.0117;
           contrast = 0.8916;
           brightness = 0.8172;
@@ -28,7 +28,7 @@
       input-field = [
         {
           size = "250, 60";
-          outline_thickness = 2;
+          outline_thickness = 4;
           dots_size = 0.2;
           dots_spacing = 0.2;
           dots_center = true;
@@ -40,6 +40,10 @@
           position = "0, -120";
           halign = "center";
           valign = "center";
+          shadow_passes = 3;          # Number of passes (0 to disable, higher means stronger shadow)
+          shadow_size = 5;
+          shadow_color = "rgba(0, 0, 0, 0.8)";
+          shadow_boost = 1.2;         # Multiplier for shadow intensity
         }
       ];
     };
