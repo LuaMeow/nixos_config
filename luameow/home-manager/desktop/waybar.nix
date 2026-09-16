@@ -106,6 +106,7 @@
           ];
           format-charging = "⚡ {capacity}%";
           format-plugged = "🔌 {capacity}%";
+          format-full = "🔌 {capacity}%";
         };
 
         clock = {
@@ -193,7 +194,7 @@
          padding: 0 2px 0 10px;
        }
 
-       #battery.discharging, #battery.charging, #battery.plugged {
+       #battery.discharging, #battery.charging, #battery.plugged, #battery.full {
          color: #41DE2A;
          margin-left: 0;
          margin-right: 4px;
