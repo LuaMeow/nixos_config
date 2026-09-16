@@ -9,5 +9,6 @@
     ./pwvucontrol.nix
     ./wallpaper.nix
     ./flameshot.nix
+    ./hyprlock.nix
   ];
 }

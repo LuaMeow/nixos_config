@@ -6,7 +6,6 @@
     ./kitty.nix
     ./ssh.nix
     ./fastfetch.nix
-    ./hyprlock.nix
   ];
 
   home.username = "liv";

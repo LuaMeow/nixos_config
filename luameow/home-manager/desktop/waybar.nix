@@ -90,6 +90,12 @@
         };
 
         battery = {
+          states = {
+            dim = 94;
+            warning = 30;
+            critical = 15;
+          };
+          interval = 5;
           format = "{icon} {capacity}%";
           format-icons = [
             ""
@@ -98,7 +104,8 @@
             ""
             ""
           ];
-          format-charging = " {capacity}%";
+          format-charging = "⚡ {capacity}%";
+          format-plugged = "🔌 {capacity}%";
         };
 
         clock = {
@@ -174,31 +181,36 @@
         margin: 3px 2px;
       }
 
-      #battery.warning {
-        color: #f9e2af;
-      }
-
-      #battery.critical {
-        color: #f38ba8;
-      }
-
       #image.Battery, #battery {
-       background: rgba(30, 30, 46, 0.75);
-       margin: 3px 2px;
+        background: rgba(30, 30, 46, 0.75);
+        margin: 3px 2px;
        }
 
       #image.Battery {
-       margin-right: 0;
-       margin-left: 4px;
-       border-radius: 10px 0 0 10px;
-       padding: 0 2px 0 10px;
+         margin-right: 0;
+         margin-left: 4px;
+         border-radius: 10px 0 0 10px;
+         padding: 0 2px 0 10px;
+       }
+
+       #battery.discharging, #battery.charging, #battery.plugged {
+         color: #41DE2A;
+         margin-left: 0;
+         margin-right: 4px;
+         border-radius: 0 10px 10px 0;
+         padding: 0 10px 0 2px;
+       }
+
+      #battery.dim.discharging {
+      color: #cdd6f4;
       }
 
-      #battery {
-       margin-left: 0;
-       margin-right: 4px;
-       border-radius: 0 10px 10px 0;
-       padding: 0 10px 0 2px;
+      #battery.warning.discharging {
+        color: #FFD014;
+      }
+
+      #battery.critical.discharging {
+        color: #FF0A0A;
       }
 
       #tray > .passive {
