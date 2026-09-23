@@ -86,7 +86,7 @@
           format-disconnected = "offline";
           tooltip-format = "{ifname} via {gwaddr}";
 
-          on-click = "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi";
+          on-click = "kitty nmtui";
         };
 
         battery = {

@@ -24,7 +24,6 @@
     moonlight-qt
     nautilus
     brightnessctl
-    gnome-control-center
     swayimg
   ];
 
